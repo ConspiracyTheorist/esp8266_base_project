@@ -12,10 +12,14 @@
 #include "esp_system.h"
 #include "esp_spi_flash.h"
 
+#include "module.h"
+
 
 void app_main()
 {
     printf("Hello world!\n");
+
+    module_print_variabele(0);
 	
 	//Some changes
 
@@ -32,6 +36,7 @@ void app_main()
 
     for (int i = 12; i >= 0; i--) {
         printf("Restarting in %d seconds...\n", i);
+        module_print_variabele(45+i);
         vTaskDelay(1000 / portTICK_PERIOD_MS);
     }
     printf("Restarting now.\n");
